@@ -1,5 +1,5 @@
 ---
-title:  "Creating a Twitter Bot using Python and AWS Lambda."
+title:  "Creating a Twitter Bot using Python and AWS Lambda"
 date:   2021-05-28 10:10:15 +0700
 tags: [python, aws]
 image: /twitter-bot/twitter_developer.png
