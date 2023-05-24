@@ -36,7 +36,6 @@ pygmentsStyle = "monokai"
     </script>
   """
   socialIcons = [
-    {name = "twitter", url = "https://twitter.com/MileFredrik"},
     {name = "stackoverflow", url = "https://stackoverflow.com/users/9428872/gosh"},
     {name = "github", url = "https://github.com/mile95"}
   ]
