@@ -35,6 +35,11 @@ Thirdly, it exposes you to the deployment and release workflows employed by the 
 By setting and accomplishing this initial personal goal, you establish your presence as an active and capable team member.
 It showcases your willingness to contribute and demonstrates your ability to navigate the essential aspects of the team's development workflow.
 
+
+![light-bulb-g1ee2a7d8b_1280](https://github.com/mile95/clipboard-tui/assets/8545435/e0e4d57b-c067-4cdb-bab2-faf75e87dbec)
+
+
+
 ## 3. Extend Your Visibility Beyond the Team
 
 In addition to establishing your presence within your new development team, it's crucial to make yourself visible to other teams and stakeholders who collaborate with your team.
