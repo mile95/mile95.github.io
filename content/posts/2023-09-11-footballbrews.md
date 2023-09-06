@@ -1,5 +1,5 @@
 ---
-title: "I built and deployed my own webbapplication"
+title: "I built and published my own webbapplication"
 description: "www.footballbrews.com"
 date: "2023-09-03T08:30:19+02:00"
 tags: [python, angular, github-actions, sqlite, docker, ssh]
@@ -60,7 +60,32 @@ In the SQLite database I keep the URL of the image which I manually uploaded to 
 
 ## Frontend
 
-- Mobile (new!)
+The frontend is created using Angular since that was the framework we used at work during this time and I wanted to get a deeper understanding of if.
+I'm using the [material](https://material.angular.io/) component library due to its simplicity.
+The trickiest part of developing the frontend was for sure to get responsive for multiple screen resolutions (including mobile).
+It was a problem I really never tackled before (with my limited frontend experience), the solution became setting different css styling based on the width of the screen.
+
+```css
+@media screen and (max-width: 800px) {
+    .beer-container {
+        font-size: 10px;
+        width: 50%;
+    }
+
+    .beer-container .beer-title {
+        font-size: large;
+    }
+
+    .beer-container p:first-child {
+        font-size: 20px;
+    }
+}
+```
+
+I don't have so much to say about the design and look of the frontend except that I find it difficult but I wanted to achive something with a retro and minimal feel.
+
+
+
 
 ## The Server and the Domain
 
