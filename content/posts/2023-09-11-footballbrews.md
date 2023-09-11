@@ -7,31 +7,24 @@ author: Fredrik
 type: post
 ---
 
-I wanted a side project which touched multiple parts of the Software Development world and something that was "real".
-I wanted a deeper understanding in domains, servers and authentication.
-Except programming I have a big interest in football, but also beers and I recently started collecting beers related to just football.
-Hence, my next side-project became footballbrews, a webbapplication where I can showcase my collection.
-This post will explain how I built it.
-Which technologies were used and why.
-I prioritezed simplicity and cheapness.
+I embarked on a side project that would not only challenge my software development skills but also provide a practical, real-world application. Combining my passion for football and beer, I decided to create FootballBrews, a web application designed to showcase my beer collection. In this post, I'll walk you through the journey of building FootballBrews, highlighting the technologies I chose and why simplicity and cost-efficiency were my top priorities.
 
-    Image here!
+![image](https://github.com/mile95/mile95.github.io/assets/8545435/99543575-c6fa-4d2e-80ee-c6e19ea9f68b)
 
 ## Backend
 
-The backend is a python application running [FastAPI](https://fastapi.tiangolo.com/).
-Python has been my go to language since I started with programming and FastAPI is framework I know quite well.
-The API is very simple, create, read, update and delete beers.
+The heart of FootballBrews is its backend, where all the magic happens. I chose Python as the programming language for this project, as it has been my trusted companion since I started my journey in software development. To build the backend, I opted for the FastAPI framework due to my familiarity with it and its efficiency in creating robust APIs.
 
-![image](https://github.com/mile95/mile95.github.io/assets/8545435/83342e8e-0743-44d9-ba03-ed47d7ccbd6a)
+
+FastAPI provides the perfect foundation for our backend with its simplicity and high-performance capabilities. Leveraging my prior experience with Python and FastAPI, I developed the API that facilitates the core functionalities of FootballBrews: creating, reading, updating, and deleting beer records.
 
 ### Authentication and Authorization
 
-Most of the code of the small backend application is handling the authentication and authorization.
-I wanted two different levels of access.
-One for the frontend application which only has read access and one for the admin (me) with read and write access.
-The authorization and authentication is handled by going to `/login` with a valid client id and secret which returns a JWT token that can be used for futher requests.
-Here´s an example of the payload of the jwt token
+A substantial portion of the backend code is dedicated to managing authentication and authorization. I envisioned two distinct levels of access: one for the frontend application, which grants read-only access, and another for myself as the admin, affording both read and write privileges.
+
+To implement this dual-tiered access system, I designed an authentication and authorization flow. Users are directed to the '/login' route, where they provide a valid client ID and secret to receive a JWT token. This token serves as a secure key for making subsequent requests.
+
+Here's a glimpse of the JWT token payload:
 
 ```json
 {
@@ -43,27 +36,20 @@ Here´s an example of the payload of the jwt token
 }
 ```
 
-The authentication and authorization flow is best descriped [in the docs of FastAPI](https://fastapi.tiangolo.com/tutorial/security/)
+You can explore the detailed authentication and authorization flow in the FastAPI documentation [here](https://fastapi.tiangolo.com/tutorial/security/).
 
 
 ### Database
 
-Almost all of the data is stored in a SQLite database.
-The amount of data that needs to be stored for this application is very little.
-When I started this project, I had four beers in the collection and it will take a long time to even collect 20+ beers hence I wanted as simple storage as possible.
-SQLite is just a single file which contains all of the data.
-It is open source and free to use.
+FootballBrews thrives on simplicity, and this extends to its choice of a database. Nearly all data is stored in a lightweight SQLite database. Given the modest amount of data this application handles, SQLite emerged as the ideal solution. Its single-file structure ensures efficient storage, and its open-source nature aligns perfectly with the project's cost-effective approach.
 
-
-For each beer I store around 5-6 attributes, but also an image of the beer.
-In the SQLite database I keep the URL of the image which I manually uploaded to my public S3 bucket.
+Each beer record in the database includes approximately 5-6 attributes, along with an associated beer image. To manage these images, I manually uploaded them to my public S3 bucket and stored the URL as part of the beer records.
 
 ## Frontend
 
-The frontend is created using Angular since that was the framework we used at work during this time and I wanted to get a deeper understanding of if.
-I'm using the [material](https://material.angular.io/) component library due to its simplicity.
-The trickiest part of developing the frontend was for sure to get responsive for multiple screen resolutions (including mobile).
-It was a problem I really never tackled before (with my limited frontend experience), the solution became setting different css styling based on the width of the screen.
+The frontend of FootballBrews is a key component responsible for delivering the application's interface. I opted for Angular as the framework to develop the frontend. This choice was influenced by my exposure to Angular in a professional context and my goal of gaining a deeper understanding of this framework.
+
+One of the primary challenges during frontend development was ensuring the application's responsiveness across various screen resolutions, including mobile devices. My limited prior experience in frontend development made this a particularly interesting challenge. To address this, I adopted a responsive design strategy, which involved adjusting CSS styling based on the screen width:
 
 ```css
 @media screen and (max-width: 800px) {
@@ -86,16 +72,20 @@ I don't have so much to say about the design and look of the frontend except tha
 
 ## Hosting
 
-I created a droplet over at Digital Ocean which is just a linux Virtual Machine.
-I choosed the second cheapest one, it has 1GB Memory and 25 GB Disk which cost 6$ per month.
-The specs is much enough for my needs, I expect close to zero traffic and minimal storage needs.
+The hosting infrastructure forms the backbone of FootballBrews, enabling the application to be accessible to users. To host the application, I selected Digital Ocean, leveraging its simplicity and cost-effectiveness.
 
-I assigned a reserved IP to the droplet so that I could configure the `A` record of the DNS settings to point for the domain that I had bought.
-Once the DNS settings was configured correctly I needed to forward the traffic going to `footballbrews.com` to the docker container running the Angular application.
-Both the frontend and the backend is running in docker on the server.
-I had nginx running in docker as well and used nginx to route traffic on the server.
-The nginx config contained two server entries, one for each container.
-This is the entry related to the frontend, here the traffic is redirected to the port <X> inside docker.
+Digital Ocean offers a straightforward and scalable solution for hosting web applications. I opted for the second-cheapest Droplet, providing 1GB of memory and 25GB of disk space, all at a monthly cost of $6. These specifications more than suffice for the needs of FootballBrews, considering the expected minimal traffic and storage requirements.
+
+Server Configuration
+
+
+- I began by creating a Digital Ocean Droplet, essentially a Linux Virtual Machine, to host FootballBrews.
+- I assigned a reserved IP address to the Droplet, allowing me to configure the 'A' record in the DNS settings to point to the domain I had purchased.
+- Once DNS settings were correctly configured, I needed to route incoming traffic from 'footballbrews.com' to the Docker container running the Angular application and the backend, both of which were hosted on the server.
+- To manage this routing, I used Nginx, also running within Docker. My Nginx configuration consisted of two server entries, each corresponding to one of the application's containers.
+
+
+Here's an example of the Nginx configuration for the frontend:
 
 ```
  server {
@@ -122,17 +112,28 @@ This is the entry related to the frontend, here the traffic is redirected to the
     }
 ```
 
-I used [Frontman](https://github.com/DeviesDevelopment/frontman) which me and good friends built a few years ago to facilitate setting up SSL and the reverse proxy.
-
+For SSL encryption, I utilized [Frontman](https://github.com/DeviesDevelopment/frontman), a tool developed by myself and friends. Frontman simplified the setup of SSL certificates and reverse proxy configuration, ensuring secure and efficient data transfer.
 
 ## CD
 
-The continuous deployment (CD) flow looks similar for both the frontend and the backend.
-I created two different github action workflows, one for building and uploading the docker image to a container registry and one for deploying (releasing) a specific image to the server.
+Efficient continuous deployment ensures that changes to your application are seamlessly delivered to users. For FootballBrews, I established a CD workflow that simplifies the process of building, releasing, and deploying both the frontend and backend. Here's a closer look at how CD was implemented:
 
 ![image](https://github.com/mile95/mile95.github.io/assets/8545435/32e41d0e-2d9a-4913-ba6d-e689ecd7b329)
 
+### Build workflow
+
+- The build workflow is triggered when a new tag following semantic versioning (e.g., v0.1.2) is pushed to the master branch.
+- This workflow proceeds to build the Docker image associated with the tagged version and pushes it to a container registry.
+
+### Deploy workflow
+- A manual workflow was created to enable deployment on-demand. I chose not to automate deployments on every push to the master branch to exercise greater control.
+This manual workflow allows for specifying the version to be provisioned and deployed, offering the flexibility to roll back to earlier versions if necessary.
+
+- To automate the CD pipeline, I employed GitHub Actions, which offered a robust and customizable workflow. I divided the CD process into two main workflows: one for building and uploading Docker images to a container registry and another for deploying specific images to the server.
+
 ![image](https://github.com/mile95/mile95.github.io/assets/8545435/e4ab7ccc-8808-492b-9091-d1368b6b8332)
+
+Here's a snippet illustrating how manual inputs are incorporated into a GitHub Actions workflow:
 
 ```yaml
 name: Deploy
@@ -143,14 +144,41 @@ on:
         description: 'Version to be provisioned'
         required: true
         default: 'latest'
+        ...
 ```
 
-## Other
 
-- backups
-- analytics
-- nginx
-- total cost
-- Why was this nice? All of the part I got to touch: FE, BE, Storage, Auth, Domains, CI/CD, Analytics, Server Manegment
+## Additional Insights
 
- 
+In this section, I'll delve into various miscellaneous topics that are essential but don't fit neatly into the previous sections. These insights provide a comprehensive view of the FootballBrews project.
+
+### Backups
+
+While FootballBrews lacks a fancy user interface for managing data, I needed a reliable method for data backup. Manually recreating data became cumbersome, especially when experimenting with different server providers before settling on Digital Ocean. To address this, I implemented a backup script to copy the database file from the server to a private S3 bucket. This script, almost a single one-liner using scp, ensures that valuable data is securely backed up.
+
+### Analytics: Tracking Web Traffic
+
+To gain insights into user activity and potential performance bottlenecks, I integrated Google Analytics into FootballBrews. This straightforward yet powerful tool tracks web traffic and user interactions. It also serves as a valuable indicator of server performance and helps gauge the need for potential upgrades.
+
+### Total Cost: Budget-Friendly Development
+
+As mentioned in the introduction, cost-effectiveness was a priority throughout this project. Here's a breakdown of the total cost:
+
+- Digital Ocean Droplet: $7.5 per month
+- Domain (footballbrews.com): $15 for the first two years
+
+All other essential components, including image repositories on Docker Hub and SSL certificates through Lets Encrypt and Certbot, incurred no additional costs. This frugal approach aligns with the project's goal of delivering functionality on a budget.
+
+# Conclusion
+
+The journey of creating FootballBrews has been both fulfilling and educational. This project allowed me to explore every facet of building, delivering, and hosting a web application. Here are some key takeaways from this endeavor:
+
+- **Frontend Exploration**: This project pushed me to dive deeper into frontend development, a domain I had relatively little experience with before. Overcoming design challenges and achieving responsive design has been a valuable learning experience.
+
+- **Versatile Playground**: FootballBrews now serves as a versatile playground for trying out new technologies and tools. Whether it's experimenting with the latest GitHub Actions features or testing new tools like bun, having a real-world project provides a valuable context for learning and innovation.
+
+- **Cost-Effective Development**: By prioritizing simplicity and cost-efficiency, I've demonstrated that robust software can be created and maintained without significant financial overhead. The minimal costs associated with this project underline the feasibility of budget-friendly development.
+
+This project has not only enriched my technical skills but also provided a tangible example of my ability to conceive, build, and maintain a functional software application. FootballBrews is more than just an application; it's a testament to the value of hands-on experience in the world of software development.
+
+With this project now in its operational state, I look forward to leveraging it to explore new technologies, continue learning, and possibly introduce exciting features to enhance the FootballBrews experience.
