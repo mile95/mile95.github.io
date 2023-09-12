@@ -1,7 +1,7 @@
 ---
 title: "Building FootballBrews - A Web Application Journey"
 description: "www.footballbrews.com"
-date: "2023-09-03T08:30:19+02:00"
+date: "2023-09-12T08:30:19+02:00"
 tags: [python, angular, github-actions, sqlite, docker, ssh]
 author: Fredrik
 type: post
