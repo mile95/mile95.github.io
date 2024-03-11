@@ -10,7 +10,8 @@ enableRobotsTXT = true
 pygmentsStyle = "monokai"
 
 [params]
-  footer = "The Marauders"
+  footer = "Fredrik Mile"
+  customFooterHTML = ""
   description = "Software Engineer"
   avatarURL = "profile.png"
   AvatarAltText = "avatar"
