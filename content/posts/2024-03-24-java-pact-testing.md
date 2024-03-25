@@ -36,22 +36,22 @@ public class ProviderTest {
 
     @State("feature1_state1")
     void feature1_state1(){
-		when(feature1.something()).thenReturn(feature1Data())
+		when(feature1Service.something()).thenReturn(feature1Data())
     }
 
 	@State("feature1_state2")
     void feature1_state2(){
-		when(feature1.somethingElse()).thenReturn(feature1Data())
+		when(feature1Service.somethingElse()).thenReturn(feature1Data())
     }
 
 	@State("fearture2_state1")
     void feature2_state1(){
-		when(feature2.something()).thenReturn(feature2Data())
+		when(feature2Service.something()).thenReturn(feature2Data())
     }
 
 	@State("feature2_state2")
     void feature2_state2(){
-		when(feature2.somethingElse()).thenReturn(feature2Data())
+		when(feature2Service.somethingElse()).thenReturn(feature2Data())
     }
 }
 
@@ -73,12 +73,12 @@ interface Feature1ProviderTest {
 
 	@State("feature1_state1")
     default void feature1_state1(){
-		when(feature1.something()).thenReturn(feature1Data());
+		when(feature1Mock().something()).thenReturn(feature1Data());
     }
 
 	@State("feature1_state2")
     default void feature1_state2(){
-		when(feature1.somethingElse()).thenReturn(feature1Data())
+		when(feature1Mock().somethingElse()).thenReturn(feature1Data())
     }
 }
 
