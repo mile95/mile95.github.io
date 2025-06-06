@@ -1,0 +1,10 @@
+<div class="post-container">
+    <div class="tags-container">
+        <span class="tags" *ngFor="let tag of post.tags">{{tag}}</span>
+    </div>
+    <div class="header-container">
+        <span class="title">{{post.title}} </span>
+        <span class="title-date">{{post.date | date}}</span>
+    </div>
+    <markdown [data]="post.content"></markdown>
+</div>

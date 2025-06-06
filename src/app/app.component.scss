@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 10px;
+}
+
+.container-item {
+    height: 90vh;
+}
+
+.post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 2rem;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    height: 90vh;
+}

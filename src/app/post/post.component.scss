@@ -1,0 +1,42 @@
+.post-container {
+    border: 0.1rem solid gray;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    min-width: 30rem;
+    max-width: 30rem;
+}
+
+.tags-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 0.5rem;
+    color: rebeccapurple;
+    font-style: bold;
+}
+
+.tags-container span {
+    gap: 0.5rem;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.1rem solid gray;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.title-date {
+    font-size: 0.9rem;
+    color: gray;
+}
