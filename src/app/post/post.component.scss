@@ -1,5 +1,5 @@
 .post-container {
-    border: 0.1rem solid gray;
+    border: 0.1rem solid #EEEEEE;
     padding-left: 2rem;
     padding-top: 0.5rem;
     padding-right: 0.5rem;
@@ -15,7 +15,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     gap: 0.5rem;
-    color: rebeccapurple;
+    color: white;
     font-style: bold;
 }
 
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 0.1rem solid gray;
+    border-bottom: 0.1rem solid #EEEEEE;
 }
 
 .title {
@@ -38,5 +38,6 @@
 
 .title-date {
     font-size: 0.9rem;
-    color: gray;
+    color: whitesmoke;
+    font-style: italic;
 }

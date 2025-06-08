@@ -1,15 +1,14 @@
 <div class="container">
-  <div class="container-item">
-    <h1> Fredrik </h1>
-    <h2> Mile del Canto </h2>
-    <p>My micro blog and my corner of the internet</p>
+  <div class="hello-container">
+    <h2>Fredrik Mile del Canto</h2>
+    <p> My corner of the internet</p>
   </div>
   <div class="post-container">
     <ng-container *ngFor="let post of posts">
       <app-post [post]="post"></app-post>
     </ng-container>
   </div>
-  <div class="container-item">
+  <div class="navigation-container">
     <p>Navigation</p>
   </div>
 </div>

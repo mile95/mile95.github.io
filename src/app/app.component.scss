@@ -3,11 +3,29 @@
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    gap: 10px;
+    box-sizing: border-box;
 }
 
-.container-item {
-    height: 90vh;
+.hello-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 2rem;
+    background-color: #F79B72;
+    height: 100vh;
+    color: black
+}
+
+.navigation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 2rem;
+    height: 100vh;
+    background-color: #2A4759;
+    color: #EEEEEE
 }
 
 .post-container {
@@ -16,7 +34,8 @@
     align-items: center;
     justify-content: start;
     padding: 2rem;
-    border-left: 2px solid gray;
-    border-right: 2px solid gray;
-    height: 90vh;
+    height: 100vh;
+    border-right: 1px solid #EEEEEE;
+    background-color: #2A4759;
+    color: #EEEEEE
 }
