@@ -12,9 +12,8 @@
     align-items: center;
     justify-content: start;
     padding: 2rem;
-    background-color: #F79B72;
     height: 100vh;
-    color: black
+    background-color: #f0e9e9;
 }
 
 .navigation-container {
@@ -24,8 +23,21 @@
     justify-content: start;
     padding: 2rem;
     height: 100vh;
-    background-color: #2A4759;
-    color: #EEEEEE
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tag-box {
+    gap: 0.2rem;
+    display: flex;
+    padding: 0.5rem;
+    border: 0.1rem solid #95a7ef;
+    border-radius: 1rem;
+    color: #f5b265;
 }
 
 .post-container {
@@ -36,6 +48,5 @@
     padding: 2rem;
     height: 100vh;
     border-right: 1px solid #EEEEEE;
-    background-color: #2A4759;
-    color: #EEEEEE
+    border-left: 1px solid #EEEEEE;
 }
