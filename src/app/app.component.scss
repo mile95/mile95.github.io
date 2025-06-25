@@ -1,25 +1,29 @@
-.hello-container {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    padding: 1rem;
+    row-gap: 1.5rem;
+    height: 100vh; // Ensure container fills viewport
 }
 
 .tags-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
 }
 
 .tag-box {
     gap: 0.2rem;
     display: flex;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     border: 0.1rem solid #252830;
     border-radius: 1rem;
     color: #323232;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .tag-box:hover {
@@ -42,8 +46,24 @@
 .post-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    padding: 2rem;
-    height: 100vh;
+    overflow-y: auto; // Enable vertical scroll
+}
+
+@media (max-width: 600px) {
+    .hello-container {
+        padding: 0.5rem;
+    }
+
+    .tags-container {
+        gap: 0.5rem;
+    }
+
+    .tag-box {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.7rem;
+    }
+
+    .post-container {
+        height: auto;
+    }
 }
