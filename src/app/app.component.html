@@ -1,23 +1,19 @@
-<div class="container">
-  <div class="hello-container">
-    <h2>Fredrik Mile del Canto</h2>
-    <p> my corner of the internet</p>
+<div class="hello-container">
+  <h2>Fredrik Mile del Canto</h2>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
+  <div class="tags-container">
+    <ng-container *ngFor="let tagAndCount of tagsToCount | keyvalue">
+      <div class="tag-box" (click)="this.onTagSelected(tagAndCount.key)"
+        [ngClass]="{'selected': selectedTag === tagAndCount.key}">
+        <span>{{tagAndCount.key}}</span>
+        <span>({{tagAndCount.value}})</span>
+      </div>
+    </ng-container>
   </div>
   <div class="post-container">
     <ng-container *ngFor="let post of posts">
       <app-post [post]="post"></app-post>
     </ng-container>
-  </div>
-  <div class="navigation-container">
-    <h2>Tags</h2>
-    <div class="tags-container">
-      <ng-container *ngFor="let tagAndCount of tagsToCount | keyvalue">
-        <div class="tag-box">
-          <span>{{tagAndCount.key}}</span>
-          <span>{{tagAndCount.value}}</span>
-        </div>
-      </ng-container>
-
-    </div>
   </div>
 </div>
