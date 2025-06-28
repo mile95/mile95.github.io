@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    row-gap: 1.5rem;
-    height: 100vh; // Ensure container fills viewport
+    row-gap: 1.0rem;
+    height: 100vh;
 }
 
 .tags-container {
@@ -46,7 +46,18 @@
 .post-container {
     display: flex;
     flex-direction: column;
-    overflow-y: auto; // Enable vertical scroll
+    overflow-y: auto;
+
+    /* Hide scrollbar for Webkit browsers */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+
+    /* Hide scrollbar for IE, Edge */
+    -ms-overflow-style: none;
 }
 
 @media (max-width: 600px) {
