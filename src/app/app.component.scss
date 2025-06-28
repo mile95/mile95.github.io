@@ -48,15 +48,12 @@
     flex-direction: column;
     overflow-y: auto;
 
-    /* Hide scrollbar for Webkit browsers */
     &::-webkit-scrollbar {
         display: none;
     }
 
-    /* Hide scrollbar for Firefox */
     scrollbar-width: none;
 
-    /* Hide scrollbar for IE, Edge */
     -ms-overflow-style: none;
 }
 
