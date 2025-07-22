@@ -27,10 +27,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(posts => {
-      this.allPosts = posts;
+      this.allPosts = this.sortByDate(posts);
       this.posts = posts;
       this.calculateTagCounts();
     });
+  }
+
+  private sortByDate(posts: Post[]): Post[] {
+    return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }
 
   private calculateTagCounts(): void {
