@@ -1,5 +1,5 @@
 ---
-title: 2026 Pizza challange
+title: 2026 Pizza challenge
 date: 2025-11-17
 tags: [announcement]
 ---
