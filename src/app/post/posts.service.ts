@@ -23,7 +23,7 @@ export interface Post {
 @Injectable({ providedIn: 'root' })
 export class PostService {
 
-    private postFilenames = ['announcement.md', 'dhh.md']
+    private postFilenames = ['announcement.md', 'dhh.md', 'pizza.md']
 
     constructor(private http: HttpClient) { }
 
